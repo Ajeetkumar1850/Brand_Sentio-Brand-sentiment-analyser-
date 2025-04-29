@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Results for {{ brand }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Analysis Results for {{ brand }}</h1>
+    <h4>The overview of the data is {{ performance}}</h4>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Average Sentiment</h5>
+                    <h3>{{ "%.2f"|format(average_sentiment) }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Performance Score</h5>
+                    <h3>{{ "%.2f"|format(brand_performance_score) }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if has_reddit_data %}
+    <div class="card mt-4">
+        <div class="card-header">
+            <h3>Reddit Engagement</h3>
+        </div>
+        <div class="card-body">
+            <img src="{{ url_for('static', filename='plots/engagement_distribution.png') }}" class="img-fluid">
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="card mt-4">
+        <div class="card-header">
+            <h3>Sentiment Analysis</h3>
+        </div>
+        <div class="card-body">
+            <img src="{{ url_for('static', filename='plots/sentiment_distribution.png') }}" class="img-fluid">
+        </div>
+    </div>
+
+    {% if has_news_data %}
+    <div class="card mt-4">
+        <div class="card-header">
+            <h3>News Sentiment</h3>
+        </div>
+        <div class="card-body">
+            <img src="{{ url_for('static', filename='plots/news_sentiment.png') }}" class="img-fluid">
+        </div>
+    </div>
+    {% endif %}
+
+    <a href="/" class="btn btn-primary mt-4">Analyze Another Brand</a>
+</div>
+{% endblock %}
