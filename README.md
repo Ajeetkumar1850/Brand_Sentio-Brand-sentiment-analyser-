@@ -1,7 +1,5 @@
 # 🔍 BrandSentio - AI-Powered Brand Sentiment Analyzer
 
-![Project Banner](https://via.placeholder.com/800x300?text=BrandSentio+Sentiment+Analysis) *(Replace with actual banner image)*
-
 A powerful sentiment analysis tool that scans Reddit and news sources to measure public perception of your brand in real-time.
 
 ## ✨ Features
